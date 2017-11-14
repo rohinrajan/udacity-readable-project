@@ -3,21 +3,25 @@ import { load_categories } from '../actions'
 import { connect } from 'react-redux'
 class CategoryList extends Component {
 
-  componentDidMount(){
-    console.log(this.props);
-    this.props.load_categories()
-  }
 
   render() {
+     console.log(this.props.getCategories());
       return(
-        <p>this is a test</p>
+        <p> This is a sample test</p>
       )
   }
 
-}
 
+
+}
 function mapStateToProps(state){
   return { category: state.category }
 }
 
-export default connect(mapStateToProps)(CategoryList);
+function mapDispatchToProps(dispatch){
+  return {
+    getCategories: load_categories()
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(CategoryList);
