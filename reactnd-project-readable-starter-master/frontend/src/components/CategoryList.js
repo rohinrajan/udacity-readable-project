@@ -5,7 +5,7 @@ class CategoryList extends Component {
 
 
   render() {
-     console.log(this.props.getCategories());
+     console.log(this.props);
       return(
         <p> This is a sample test</p>
       )
