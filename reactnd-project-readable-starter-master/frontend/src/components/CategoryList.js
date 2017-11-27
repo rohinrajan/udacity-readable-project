@@ -3,9 +3,13 @@ import { load_categories } from '../actions'
 import { connect } from 'react-redux'
 class CategoryList extends Component {
 
+ componentWillMount(){
+   this.props.getCategories()
+ }
+
 
   render() {
-     console.log(this.props);
+    console.log(this.props.category)
       return(
         <p> This is a sample test</p>
       )
@@ -15,12 +19,12 @@ class CategoryList extends Component {
 
 }
 function mapStateToProps(state){
-  return { category: state.category }
+  return { category: state.categories }
 }
 
 function mapDispatchToProps(dispatch){
   return {
-    getCategories: load_categories()
+    getCategories: () => dispatch(load_categories())
   }
 }
 

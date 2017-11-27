@@ -5,7 +5,7 @@ const Inital_state = {}
 export function category(state = Inital_state, action){
   switch (action.type) {
     case LOAD_CATEGORIES:
-      return action.data.category;
+      return action.payload.categories;
     default:
       return state;
   }
