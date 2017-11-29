@@ -24,3 +24,10 @@ export const getPostsByCategory = (category) => {
       .then(res => res.json())
       .then(data => data)
 }
+
+export const addPost = (title, body, author, category) => {
+  return fetch(`${api}/comments` { method: 'POST',
+                                   headers: headers,
+                                   body: JSON.stringify({ title, body, author, category, timestamp: Date.now()})
+                                 }).then(res => res.json())
+}
