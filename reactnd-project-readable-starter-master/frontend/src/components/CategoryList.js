@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import { load_categories } from '../actions'
 import { connect } from 'react-redux'
+
+
 class CategoryList extends Component {
 
- componentWillMount(){
-   this.props.getCategories()
- }
-
+  componentWillMount(){
+    this.props.getCategories()
+  }
 
   render() {
-    console.log(this.props.category)
+      const {category} = this.props
       return(
-        <p> This is a sample test</p>
+        <div>
+          {category && category.map((cat)=> (
+            <p key={cat.path}> {cat.name } </p>
+          ))}
+        </div>
       )
   }
 
@@ -19,7 +24,7 @@ class CategoryList extends Component {
 
 }
 function mapStateToProps(state){
-  return { category: state.categories }
+  return { category: state.category }
 }
 
 function mapDispatchToProps(dispatch){

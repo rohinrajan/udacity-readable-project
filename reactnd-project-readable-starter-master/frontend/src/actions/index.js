@@ -7,8 +7,6 @@ export const load_categories = () => dispatch =>{
 
 
 const getAllCategories = (categories) => {
-  console.log("testing")
-  console.log(categories)
   return {
     type: LOAD_CATEGORIES,
     payload: categories
