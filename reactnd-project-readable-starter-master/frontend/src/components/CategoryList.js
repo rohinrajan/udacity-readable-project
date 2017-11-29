@@ -10,13 +10,13 @@ class CategoryList extends Component {
   }
 
   render() {
-      const {category} = this.props
+      const {categories} = this.props
       return(
-        <div>
-          {category && category.map((cat)=> (
-            <p key={cat.path}> {cat.name } </p>
+        <ul>
+          {categories && categories.map((category)=> (
+            <li key={category.path}> {category.name } </li>
           ))}
-        </div>
+        </ul>
       )
   }
 
@@ -24,7 +24,7 @@ class CategoryList extends Component {
 
 }
 function mapStateToProps(state){
-  return { category: state.category }
+  return { categories: state.categories }
 }
 
 function mapDispatchToProps(dispatch){

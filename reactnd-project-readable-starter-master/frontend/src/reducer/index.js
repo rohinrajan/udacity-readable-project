@@ -1,16 +1,27 @@
-import { LOAD_CATEGORIES } from '../actions'
+import * as actionTypes from '../actions/actionTypes'
 import { combineReducers } from 'redux'
 
 const Inital_state = null
-export function category(state = Inital_state, action){
+
+export function categories(state = Inital_state, action){
   switch (action.type) {
-    case LOAD_CATEGORIES:
+    case actionTypes.LOAD_CATEGORIES:
       return action.payload;
     default:
       return state;
   }
 }
 
+export function posts(state = Inital_state, action){
+  switch (action.type) {
+    case actionTypes.LOAD_POSTS:
+      return action.posts;
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
-  category
+  categories,
+  posts
 });

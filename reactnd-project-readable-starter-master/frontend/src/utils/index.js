@@ -11,4 +11,16 @@ export const getCategories = () => {
   return fetch(`${api}/categories`, { headers: headers })
     .then(res => res.json())
     .then(data => data.categories)
-  }
+}
+
+export const getAllPosts = () => {
+  return fetch(`${api}/posts`, { headers: headers })
+    .then(res => res.json())
+    .then(data => data)
+}
+
+export const getPostsByCategory = (category) => {
+  return fetch(`${api}/${category}/posts`,{ headers: headers })
+      .then(res => res.json())
+      .then(data => data)
+}
