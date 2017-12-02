@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { load_posts } from '../actions'
 import { connect } from 'react-redux'
-
+import { Panel } from 'react-bootstrap'
 
 class PostList extends Component {
 
@@ -12,11 +12,11 @@ class PostList extends Component {
   render() {
       const {posts} = this.props
       return(
-        <ul>
-          {posts && posts.map((post)=> (
-            <li key={post.id}> {post.title } </li>
+        <div>
+          {posts && posts.map((post) => (
+            <Panel key={post.id}>{post.title}</Panel>
           ))}
-        </ul>
+        </div>
       )
   }
 }

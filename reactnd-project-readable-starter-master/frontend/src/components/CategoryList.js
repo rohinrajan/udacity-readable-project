@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { load_categories } from '../actions'
 import { connect } from 'react-redux'
-
+import { Nav, NavItem } from 'react-bootstrap'
 
 class CategoryList extends Component {
 
@@ -12,17 +12,16 @@ class CategoryList extends Component {
   render() {
       const {categories} = this.props
       return(
-        <ul>
+        <Nav bsStyle="pills" activeKey={1}>
+            <NavItem eventKey={1}>All</NavItem>
           {categories && categories.map((category)=> (
-            <li key={category.path}> {category.name } </li>
+            <NavItem eventKey={category.path}>{category.name}</NavItem>
           ))}
-        </ul>
+        </Nav>
       )
   }
-
-
-
 }
+
 function mapStateToProps(state){
   return { categories: state.categories }
 }
