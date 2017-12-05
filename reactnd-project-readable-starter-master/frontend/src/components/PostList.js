@@ -14,7 +14,7 @@ class PostList extends Component {
       return(
         <div>
           {posts && posts.map((post) => (
-            <Panel key={post.id}>{post.title}</Panel>
+            <Panel key={post.id} header={post.title}>{post.body}</Panel>
           ))}
         </div>
       )

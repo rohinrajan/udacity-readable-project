@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { load_categories } from '../actions'
 import { connect } from 'react-redux'
-import { Nav, NavItem } from 'react-bootstrap'
+import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
 
 class CategoryList extends Component {
 
@@ -11,15 +11,25 @@ class CategoryList extends Component {
 
   render() {
       const {categories} = this.props
+      function handleSortBy(selectedKey){
+        console.log("selected {selectedKey}")
+      }
       return(
         <Nav bsStyle="pills" activeKey={1}>
             <NavItem eventKey={1}>All</NavItem>
           {categories && categories.map((category)=> (
-            <NavItem eventKey={category.path}>{category.name}</NavItem>
+            <NavItem eventKey={category.path} key={category.path}>{category.name}</NavItem>
           ))}
+            <NavDropdown title="Sort By" onSelect={handleSortBy} id="SortById">
+              <MenuItem eventKey={'VoteScore'}>VoteScore</MenuItem>
+              <MenuItem eventKey={'timestamp'}>TimeStamp</MenuItem>
+            </NavDropdown>
         </Nav>
       )
   }
+
+
+
 }
 
 function mapStateToProps(state){
