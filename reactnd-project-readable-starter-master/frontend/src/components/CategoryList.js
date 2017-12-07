@@ -9,10 +9,11 @@ class CategoryList extends Component {
     this.props.getCategories()
   }
 
+
   render() {
       const {categories} = this.props
       function handleSortBy(selectedKey){
-        console.log("selected {selectedKey}")
+        console.log("selected %s",selectedKey)
       }
       return(
         <Nav bsStyle="pills" activeKey={1}>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { load_posts } from '../actions'
 import { connect } from 'react-redux'
-import { Panel } from 'react-bootstrap'
+import { Panel,Grid,Row,Col, Badge } from 'react-bootstrap'
 
 class PostList extends Component {
 
@@ -12,11 +12,15 @@ class PostList extends Component {
   render() {
       const {posts} = this.props
       return(
-        <div>
-          {posts && posts.map((post) => (
-            <Panel key={post.id} header={post.title}>{post.body}</Panel>
-          ))}
-        </div>
+          <Grid>
+            {posts && posts.map((post) => (
+              <Row className="show-grid" key={post.id}>
+                <Col md={2}>VoteScore:<Badge>{post.voteScore}</Badge></Col>
+                <Col md={8}><Panel key={post.id} header={post.title}>{post.body}</Panel>
+                </Col>
+              </Row>
+            ))}
+          </Grid>
       )
   }
 }
